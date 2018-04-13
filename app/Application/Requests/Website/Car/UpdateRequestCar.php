@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
          "brand_id" => "required|integer",
             "title" => "min:10|max:191|required",
    "body" => "required",
-   "image" => "required|image",
+            "image" => "nullable|image",
    "youtube" => "nullable|url",
             "price"=>"required"
             ];

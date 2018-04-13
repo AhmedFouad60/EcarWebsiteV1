@@ -8,4 +8,5 @@
 		'edit'=>'edit',
 		'show'=>'show',
 		'delete'=>'delete',
+		'price'=>'price',
 	];

@@ -17,7 +17,14 @@
     <input type="text" name="title" class="form-control" id="title" value="{{ isset($item->title) ? $item->title : old("title") }}"  placeholder="{{ trans("car.title")}}">
    </label>
   </div>
-  <div class="form-group">
+
+            <div class="form-group">
+                <label for="title">{{ trans("car.price")}}</label>
+                <input type="text" name="price" class="form-control" id="title" value="{{ isset($item->price) ? $item->price : old("price")  }}"  placeholder="{{ trans("car.price")}}">
+                </label>
+            </div>
+
+            <div class="form-group">
    <label for="body">{{ trans("car.body")}}</label>
     <textarea name="body" class="form-control" id="body"   placeholder="{{ trans("car.body")}}">{{ isset($item->body) ? $item->body : old("body") }}</textarea>
    </label>

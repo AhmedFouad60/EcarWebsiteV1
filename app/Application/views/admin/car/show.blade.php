@@ -19,6 +19,17 @@
     @else
      <td>{{ nl2br($item->title) }}</td>
     @endif</tr>
+
+      <tr><th>{{ trans("car.price") }}</th>
+          @php $type =  getFileType("price" , $item->price) @endphp
+          @if($type == "File")
+              <td> <a href="{{ url(env("UPLOAD_PATH")."/".$item->price) }}">{{ $item->price }}</a></td>
+          @elseif($type == "Image")
+              <td> <img src="{{ url(env("UPLOAD_PATH")."/".$item->price) }}" /></td>
+          @else
+              <td>{{ nl2br($item->price) }}</td>
+          @endif</tr>
+
     <tr><th>{{ trans("car.body") }}</th>
     @php $type =  getFileType("body" , $item->body) @endphp
     @if($type == "File")
