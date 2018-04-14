@@ -29,4 +29,6 @@ return [
     'maincat' => '',
     'car' => '',
     'accessories' => '',
+    'country' => '',
+    'region' => '',
 ];

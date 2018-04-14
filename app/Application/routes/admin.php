@@ -141,3 +141,17 @@ Route::post('accessories/item' , 'AccessoriesController@store');
 Route::post('accessories/item/{id}' , 'AccessoriesController@update');
 Route::get('accessories/{id}/delete' , 'AccessoriesController@destroy');
 Route::get('accessories/{id}/view' , 'AccessoriesController@getById');
+#### country control
+Route::get('country' , 'CountryController@index');
+Route::get('country/item/{id?}' , 'CountryController@show');
+Route::post('country/item' , 'CountryController@store');
+Route::post('country/item/{id}' , 'CountryController@update');
+Route::get('country/{id}/delete' , 'CountryController@destroy');
+Route::get('country/{id}/view' , 'CountryController@getById');
+#### region control
+Route::get('region' , 'RegionController@index');
+Route::get('region/item/{id?}' , 'RegionController@show');
+Route::post('region/item' , 'RegionController@store');
+Route::post('region/item/{id}' , 'RegionController@update');
+Route::get('region/{id}/delete' , 'RegionController@destroy');
+Route::get('region/{id}/view' , 'RegionController@getById');

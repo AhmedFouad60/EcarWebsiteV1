@@ -82,3 +82,17 @@ Route::get('accessories/delete/{id}', 'AccessoriesApi@delete');
 Route::post('accessories/add', 'AccessoriesApi@add');
 Route::post('accessories/update/{id}', 'AccessoriesApi@update');
 Route::get('accessories/{limit?}/{offset?}/{lang?}', 'AccessoriesApi@index');
+
+#country
+Route::get('country/getById/{id}/{lang?}', 'CountryApi@getById');
+Route::get('country/delete/{id}', 'CountryApi@delete');
+Route::post('country/add', 'CountryApi@add');
+Route::post('country/update/{id}', 'CountryApi@update');
+Route::get('country/{limit?}/{offset?}/{lang?}', 'CountryApi@index');
+
+#region
+Route::get('region/getById/{id}/{lang?}', 'RegionApi@getById');
+Route::get('region/delete/{id}', 'RegionApi@delete');
+Route::post('region/add', 'RegionApi@add');
+Route::post('region/update/{id}', 'RegionApi@update');
+Route::get('region/{limit?}/{offset?}/{lang?}', 'RegionApi@index');

@@ -5,6 +5,8 @@
   @section('content')
     @component(layoutForm() , ['title' => trans('car.car') , 'model' => 'car' , 'action' => trans('home.view')  ])
   <table class="table table-bordered table-responsive table-striped">
+  @include("admin.car.relation.region.show")
+  @include("admin.car.relation.country.show")
   @include("admin.car.relation.accessories.show")
   @include("admin.car.relation.maincat.show")
   @include("admin.car.relation.brand.show")
@@ -19,8 +21,7 @@
     @else
      <td>{{ nl2br($item->title) }}</td>
     @endif</tr>
-
-      <tr><th>{{ trans("car.price") }}</th>
+       <tr><th>{{ trans("car.price") }}</th>
           @php $type =  getFileType("price" , $item->price) @endphp
           @if($type == "File")
               <td> <a href="{{ url(env("UPLOAD_PATH")."/".$item->price) }}">{{ $item->price }}</a></td>
@@ -29,8 +30,7 @@
           @else
               <td>{{ nl2br($item->price) }}</td>
           @endif</tr>
-
-    <tr><th>{{ trans("car.body") }}</th>
+     <tr><th>{{ trans("car.body") }}</th>
     @php $type =  getFileType("body" , $item->body) @endphp
     @if($type == "File")
      <td> <a href="{{ url(env("UPLOAD_PATH")."/".$item->body) }}">{{ $item->body }}</a></td>

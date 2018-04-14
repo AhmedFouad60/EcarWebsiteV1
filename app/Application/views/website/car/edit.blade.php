@@ -8,6 +8,8 @@
          <a href="{{ url('car') }}" class="btn btn-danger"><i class="fa fa-arrow-left"></i> {{ trans('website.Back') }}  </a>
         <form action="{{ concatenateLangToUrl('car/item') }}{{ isset($item) ? '/'.$item->id : '' }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
+            @include("website.car.relation.region.edit")
+            @include("website.car.relation.country.edit")
             @include("website.car.relation.accessories.edit")
             @include("website.car.relation.maincat.edit")
             @include("website.car.relation.brand.edit")
@@ -17,14 +19,12 @@
     <input type="text" name="title" class="form-control" id="title" value="{{ isset($item->title) ? $item->title : old("title") }}"  placeholder="{{ trans("car.title")}}">
    </label>
   </div>
-
-            <div class="form-group">
+             <div class="form-group">
                 <label for="title">{{ trans("car.price")}}</label>
                 <input type="text" name="price" class="form-control" id="title" value="{{ isset($item->price) ? $item->price : old("price")  }}"  placeholder="{{ trans("car.price")}}">
                 </label>
             </div>
-
-            <div class="form-group">
+             <div class="form-group">
    <label for="body">{{ trans("car.body")}}</label>
     <textarea name="body" class="form-control" id="body"   placeholder="{{ trans("car.body")}}">{{ isset($item->body) ? $item->body : old("body") }}</textarea>
    </label>

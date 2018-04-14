@@ -20,7 +20,9 @@
     public function rules()
     {
         return [
-        	"maincat_id" => "required|integer",
+        	"region_id" => "required|integer",
+         "country_id" => "required|integer",
+         "maincat_id" => "required|integer",
          "brand_id" => "required|integer",
             "title" => "min:10|max:191|required",
    "body" => "required",

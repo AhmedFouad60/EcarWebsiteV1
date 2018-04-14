@@ -6,6 +6,8 @@
 <div class="container">
         <a href="{{ url('car') }}" class="btn btn-danger"><i class="fa fa-arrow-left"></i> {{ trans('website.Back') }}  </a>
   <table class="table table-bordered table-responsive table-striped">
+  @include("website.car.relation.region.show")
+  @include("website.car.relation.country.show")
   @include("website.car.relation.accessories.show")
   @include("website.car.relation.maincat.show")
   @include("website.car.relation.brand.show")
@@ -20,8 +22,7 @@
     @else
      <td>{{ nl2br($item->title) }}</td>
     @endif</tr>
-
-      <tr><th>{{ trans("car.price") }}</th>
+       <tr><th>{{ trans("car.price") }}</th>
           @php $type =  getFileType("price" , $item->price) @endphp
           @if($type == "File")
               <td> <a href="{{ url(env("UPLOAD_PATH")."/".$item->price) }}">{{ $item->price }}</a></td>
@@ -30,8 +31,7 @@
           @else
               <td>{{ nl2br($item->price) }}</td>
           @endif</tr>
-
-      <tr><th>{{ trans("car.body") }}</th>
+       <tr><th>{{ trans("car.body") }}</th>
     @php $type =  getFileType("body" , $item->body) @endphp
     @if($type == "File")
      <td> <a href="{{ url(env("UPLOAD_PATH")."/".$item->body) }}">{{ $item->body }}</a></td>
