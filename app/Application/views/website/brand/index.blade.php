@@ -5,35 +5,67 @@
 @endsection
 
 @section('content')
-<div class="container">
-    <div><h1>{{ trans('website.brand') }}</h1></div>
-     <div><a href="{{ url('brand/item') }}" class="btn btn-default"><i class="fa fa-plus"></i> {{ trans('website.brand') }}</a><br></div>
- <table class="table table-responsive table-striped table-bordered">
-		<thead>
-			<tr>
-				<th>{{ trans("brand.title") }}</th>
-				<th>{{ trans("brand.image") }}</th>
-				<th>{{ trans("brand.edit") }}</th>
-				<th>{{ trans("brand.show") }}</th>
-				<th>{{ trans("brand.delete") }}</th>
-				</thead>
-		<tbody>
-		@if(count($items) > 0)
-			@foreach($items as $d)
-				<tr>
-					<td>{{ str_limit(getDefaultValueKey($d->title) , 20) }}</td>
-									<td>
-				<img src="{{ url(env("UPLOAD_PATH")."/".$d->image)}}"  width="80" />
-					</td>
-<td>@include("website.brand.buttons.edit", ["id" => $d->id ])</td>
-					<td>@include("website.brand.buttons.view", ["id" => $d->id ])</td>
-					<td>@include("website.brand.buttons.delete", ["id" => $d->id ])</td>
-					</tr>
-					@endforeach
-				@endif
-			</tbody>
-		</table>
-	@include("layouts.paginate" , ["items" => $items])
-		
-</div>
+
+    <!-- ____________________Featured Section ______________________________-->
+    <div class="allcontain">
+        <div class="feturedsection">
+            <h1 class="text-center text-uppercase">&bullet; {{ trans("website.brand") }}&bullet;</h1>
+        </div>
+            @if(count($items) > 0)
+                @foreach($items as $d)
+
+                <div class="col-lg-6 costumcol colborder2" style="margin-bottom: 20px;padding: 25px;">
+                    <div class="row costumrow">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img2colon">
+                            <img src="{{ url(env("UPLOAD_PATH")."/".$d->image)}}" alt="porsche1">
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 txt1colon ">
+                            <div class="featurecontant">
+                                <h1>LOREM IPSUM</h1>
+                                <p>"Lorem ipsum dolor sit amet, consectetur ,<br>
+                                    sed do eiusmod tempor incididunt </p>
+                                <h2>Price &euro;</h2>
+                                <button id="btnRM2" onclick="location.href='{{url('car?'). $d->id}}'">READ MORE</button>
+                                <div id="readmore2">
+                                    <h1>Car Name</h1>
+                                    <p>"Lorem ipsum dolor sit amet, consectetur ,<br>
+                                        sed do eiusmod tempor incididunt <br>"Lorem ipsum dolor sit amet, consectetur ,<br>
+                                        sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1 ,
+                                        sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1
+                                        sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1<br></p>
+                                    <button id="btnRL2">READ LESS</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        @endforeach
+
+
+    @endif
+    <div class="clearfix"></div>
+
+
+
+
+
+{{--end of content--}}
+
+
+    <?php echo $items->links(); ?>
+
+
+
+    {{--@include("layouts.paginate" , ["items" => $items])--}}
+
+{{--    {!! $items->render() !!}--}}
+
+
+
+
+
+
 @endsection
+

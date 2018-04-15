@@ -793,7 +793,7 @@
 .featurecontant{
 	width:85%;
 	height: auto;
-	border: 1px solid #C59E47;
+	/*border: 1px solid #C59E47;*/
 	margin-top: 7%;
 
 	margin-right: auto;
@@ -1680,4 +1680,9 @@
 	-ms-transition-duration: 0.8s;
 	-o-transition-duration: 0.8s;
 	transition-duration: 0.8s;
+}
+
+.pagination{
+	margin-left: 50px !important;
+	margin-right: 50px !important;
 }
