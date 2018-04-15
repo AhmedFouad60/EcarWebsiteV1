@@ -5,14 +5,30 @@ use Alert;
 use App\Application\Model\Car;
 use App\Application\Requests\Website\Car\AddRequestCar;
 use App\Application\Requests\Website\Car\UpdateRequestCar;
+ use Illuminate\Http\Request;
+
  class CarController extends AbstractController
 {
       public function __construct(Car $model)
         {
             parent::__construct($model);
         }
-         public function index(){
-            $items = $this->model->paginate(env('PAGINATE'));
+         public function index(Request $request){
+             $items = $this->model;
+          if($request->has('brand')){
+              $items = $items->where('brand_id',$request->brand);
+          }
+             if($request->has('maincat')){
+                 $items = $items->where('maincat_id',$request->maincat);
+             }
+             if($request->has('region')){
+                 $items = $items->where('region_id',$request->region);
+             }
+             if($request->has('country')){
+                 $items = $items->where('country_id',$request->country);
+             }
+
+            $items = $items->paginate(env('PAGINATE'));
             return view('website.car.index' , compact('items'));
         }
          public function show($id = null){
