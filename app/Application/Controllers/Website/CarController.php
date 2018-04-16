@@ -27,6 +27,9 @@ use App\Application\Requests\Website\Car\UpdateRequestCar;
              if($request->has('country')){
                  $items = $items->where('country_id',$request->country);
              }
+             if($request->has('price')){
+                 $items = $items->where('price',$request->price);
+             }
 
             $items = $items->paginate(env('PAGINATE'));
             return view('website.car.index' , compact('items'));

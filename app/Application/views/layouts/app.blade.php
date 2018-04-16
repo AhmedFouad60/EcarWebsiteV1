@@ -9,6 +9,7 @@
     {{--<title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>--}}
     <title>@yield('title')</title>
     {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="{{url('website/source/bootstrap-3.3.6-dist/css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('website/source/font-awesome-4.5.0/css/font-awesome.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('website/style/slider.css')}}">
@@ -43,6 +44,8 @@
 
         <!-- Header -->
         <div class="allcontain">
+
+
             <div class="header">
                 <ul class="socialicon">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -128,6 +131,90 @@
             </nav>
         </div>
 
+        {{--<div style="margin-bottom: 50px;"></div>--}}
+        <div class="allcontain clearfix">
+
+        <nav class="navbar navbar-default midle-nav ">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed textcostume" data-toggle="collapse" data-target="#navbarmidle" aria-expanded="false">
+                    <h1>SEARCH CARS</h1>
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarmidle">
+                <div class="searchtxt">
+                    <h1>SEARCH CARS</h1>
+                </div>
+             <form action="{{url('car')}}">
+                <ul class="nav navbar-nav navbarborder">
+
+                    <li class="li-category">
+                          <select name="brand" id="" class=" form-control text-center" >
+                                <option class="" value="" selected="true" disabled="disabled">BRANDS</option>
+
+                            @foreach(\App\Application\Model\Brand::get() as $brand)
+                                    <option class="" value="{{$brand->id}}">{{getDefaultValueKey($brand->title)}}</option>
+                                @endforeach
+
+                            </select>
+                        {{--</ul>--}}
+
+                    </li>
+                    <li class="li-category">
+                        <select name="maincat" id="" class=" form-control text-center" >
+                            <option class="disable" value="" selected="true" disabled="disabled">Category</option>
+
+                            @foreach(\App\Application\Model\Maincat::get() as $category)
+                                <option class="" value="{{$category->id}}">{{getDefaultValueKey($category->title)}}</option>
+                            @endforeach
+
+                        </select>
+
+
+                    </li>
+                    <li class="li-category">
+                        <select name="maincat" id="" class=" form-control text-center" >
+                            <option class="disable" value="" selected="true" disabled="disabled">Country</option>
+
+                            @foreach(\App\Application\Model\Country::get() as $country)
+                                <option class="" value="{{$country->id}}">{{getDefaultValueKey($country->title)}}</option>
+                            @endforeach
+
+                        </select>
+
+
+                    </li>
+                    <li class="li-category">
+                        <select name="maincat" id="" class=" form-control text-center" >
+                            <option class="disable" value="" selected="true" disabled="disabled">Region</option>
+
+                            @foreach(\App\Application\Model\Region::get() as $region)
+                                <option class="" value="{{$region->id}}">{{getDefaultValueKey($region->title)}}</option>
+                            @endforeach
+
+                        </select>
+
+
+                    </li>
+
+                    <li class="li-category">
+                            <input  type="number" placeholder="price" class="form-control" style="background: none;color: #FFF;height: 41px;font-size: 20px;">
+
+
+                    </li>
+                    <li class="li-search"> <button type="submit"class="searchbutton"><span class="glyphicon glyphicon-search "></span></button></li>
+                </ul>
+             </form>
+
+            </div>
+        </nav>
+
+        </div>
+
+
         @yield('content')
 
         <!-- ____________________Featured Section ______________________________-->
@@ -138,6 +225,7 @@
 
         <!-- ______________________________________________________Bottom Menu ______________________________-->
         <div class="bottommenu">
+
             {{--<div class="bottomlogo">--}}
                 {{--<span class="dotlogo">&bullet;</span><img src="{{url('website/image/collectionlogo1.png')}}" alt="logo1"><span class="dotlogo">&bullet;;</span>--}}
             {{--</div>--}}
@@ -191,8 +279,14 @@
         <script type="text/javascript" src="{{url('website/source/bootstrap-3.3.6-dist/js/jquery.js')}}"></script>
         <script type="text/javascript" src="{{url('website/source/js/isotope.js')}}"></script>
         <script type="text/javascript" src="{{url('website/source/js/myscript.js')}}"></script>
-        <script type="text/javascript" src="{{url('website/source/bootstrap-3.3.6-dist/js/jquery.1.11.js')}}"></script>
+        {{--<script type="text/javascript" src="{{url('website/source/bootstrap-3.3.6-dist/js/jquery.1.11.js')}}"></script>--}}
         <script type="text/javascript" src="{{url('website/source/bootstrap-3.3.6-dist/js/bootstrap.js')}}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+        <script type="application/javascript">
+            $('#brand').select2();
+
+        </script>
 
     <script type="application/javascript">
         function deleteThisItem(e){

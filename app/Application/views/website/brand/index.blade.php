@@ -9,7 +9,7 @@
     <!-- ____________________Featured Section ______________________________-->
     <div class="allcontain">
         <div class="feturedsection">
-            <h1 class="text-center text-uppercase">&bullet; {{ trans("website.brand") }}&bullet;</h1>
+            <h1 class="text-center text-uppercase pageHeader">&bullet; {{ trans("website.brand") }}&bullet;</h1>
         </div>
             @if(count($items) > 0)
                 @foreach($items as $d)

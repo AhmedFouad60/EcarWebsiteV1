@@ -386,10 +386,11 @@
 	background: rgba(58, 53, 38, 0.8);
 	border: 0px;
 	position: absolute;
-	bottom: 0px;
+	top: 81px;
 	width: 100%;
 	margin: 0px;
 	border-radius: 0px;
+	z-index: 50;
 }
 #navbarmidle{
 	padding-left: 6.6%;
@@ -1685,4 +1686,44 @@
 .pagination{
 	margin-left: 50px !important;
 	margin-right: 50px !important;
+}
+.pageHeader{
+	margin-top: 106px;
+}
+
+.navbarborder>li{
+	margin-right: 11px;
+	height: 69px;
+}
+.navbarborder>li>select{
+	font-family: "OpenSans Regular";
+	font-size: 13pt;
+	color: #fff !important;
+	background: none;
+	padding-top: 3px;
+	padding-bottom: 7px;
+	height: 44px;
+	border: 1px solid #fff!important;
+}
+.navbarborder>li>select:hover{
+	color: #F8C72D !important;
+	background-color: #fff!important;
+
+}
+.navbarborder>li>select>option{
+	color: #000000!important;
+	background-color: #fff!important;
+
+}
+.navbarborder>li:last-child{
+	padding-right: 0px;
+	margin-right: 0px;
+	margin-left: 30px;
+	padding-right: 0px;
+}
+
+select {
+	text-align: center;
+	text-align-last: center;
+	/* webkit*/
 }
