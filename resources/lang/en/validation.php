@@ -78,7 +78,9 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
-    'attributes' => '',
+    'attributes' => [
+        'size' => '',
+    ],
     'ipv4' => '',
     'ipv6' => '',
 ];

@@ -56,3 +56,11 @@ Route::post('region/item' , 'RegionController@store');
 Route::post('region/item/{id}' , 'RegionController@update');
 Route::get('region/{id}/delete' , 'RegionController@destroy');
 Route::get('region/{id}/view' , 'RegionController@getById');
+
+#### slider control
+Route::get('slider' , 'SliderController@index');
+Route::get('slider/item/{id?}' , 'SliderController@show');
+Route::post('slider/item' , 'SliderController@store');
+Route::post('slider/item/{id}' , 'SliderController@update');
+Route::get('slider/{id}/delete' , 'SliderController@destroy');
+Route::get('slider/{id}/view' , 'SliderController@getById');

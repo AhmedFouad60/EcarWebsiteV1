@@ -96,3 +96,10 @@ Route::get('region/delete/{id}', 'RegionApi@delete');
 Route::post('region/add', 'RegionApi@add');
 Route::post('region/update/{id}', 'RegionApi@update');
 Route::get('region/{limit?}/{offset?}/{lang?}', 'RegionApi@index');
+
+#slider
+Route::get('slider/getById/{id}/{lang?}', 'SliderApi@getById');
+Route::get('slider/delete/{id}', 'SliderApi@delete');
+Route::post('slider/add', 'SliderApi@add');
+Route::post('slider/update/{id}', 'SliderApi@update');
+Route::get('slider/{limit?}/{offset?}/{lang?}', 'SliderApi@index');
