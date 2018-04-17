@@ -1467,13 +1467,18 @@
 	font-family: "OpenSans Regular";
 	font-size: 17px;
 	letter-spacing: 4px;
-	color: #191919;
+	color: #FFFFFF;
+	background: #213cd6;
+	margin-bottom: 20px;
+
 }
 .bottommenu>ul>li>a:hover{
-	background-color: none;
-	background: none;
+	/*background-color: none;*/
+	/*background: none;*/
 	border: none;
-	font-family: "OpenSans Regular";
+    background: #213cd6;
+
+    font-family: "OpenSans Regular";
 	font-size: 17px;
 	letter-spacing: 4px;
 	color: #191919;
@@ -1481,8 +1486,13 @@
 .bottomlinks{
 	border: 0px;
 }
+
+
 .bottomlinks>li>a{
 	border: 0px;
+	color:#ffffff;
+
+
 }
 .bottomlinks > li > a:hover,
 .bottomlinks > li > a:focus {

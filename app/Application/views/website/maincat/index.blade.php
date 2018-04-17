@@ -3,7 +3,9 @@
 @section('title')
      {{ trans('maincat.maincat') }} {{ trans('home.control') }}
 @endsection
-
+@section('search')
+	@include('layouts.search')
+@endsection
 @section('content')
 
 
@@ -60,7 +62,8 @@
 
 
 
-	@include("layouts.paginate" , ["items" => $items])
+	{{--@include("layouts.paginate" , ["items" => $items])--}}
+    <?php echo $items->links(); ?>
 
 
 

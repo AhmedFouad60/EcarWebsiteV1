@@ -1,0 +1,41 @@
+
+=====================================
+Transable Field title in car Model
+=====================================
+you didn't make the field {title} transable  ....when makeing the model   -> when you create the table 
+
+so -> at the index of the Car   when you use the method   [getDefaultValueKey($d->title)] it didn't gave you anything 
+
+
+----solution ----
+
+first sol=> ignore it till finishing the project and save it to github
+second sol=> try fixing it throguht migration table if you can      ....it can't do it throught migration 
+
+
+
+--descision-    leave it tile finish the project
+
+
+
+===============================
+show car image in original size
+===============================
+
+i'll do it later at the end of project
+
+
+i don't know why this route doesn't work correct 
+
+	@if(isset($large))
+	    <a href="{{url('/imageshow')}}" class="btn btn-warning">
+		<i class="fa fa-eye"></i>
+	    </a>
+	@else
+
+
+========================================
+
+
+
+

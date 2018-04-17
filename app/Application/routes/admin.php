@@ -134,6 +134,9 @@ Route::post('car/item' , 'CarController@store');
 Route::post('car/item/{id}' , 'CarController@update');
 Route::get('car/{id}/delete' , 'CarController@destroy');
 Route::get('car/{id}/view' , 'CarController@getById');
+
+
+
 #### accessories control
 Route::get('accessories' , 'AccessoriesController@index');
 Route::get('accessories/item/{id?}' , 'AccessoriesController@show');

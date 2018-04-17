@@ -6,6 +6,7 @@ use App\Application\Model\Car;
 use App\Application\Requests\Website\Car\AddRequestCar;
 use App\Application\Requests\Website\Car\UpdateRequestCar;
  use Illuminate\Http\Request;
+ use Illuminate\Support\Facades\Auth;
 
  class CarController extends AbstractController
 {
@@ -31,11 +32,21 @@ use App\Application\Requests\Website\Car\UpdateRequestCar;
                  $items = $items->where('price',$request->price);
              }
 
-            $items = $items->paginate(env('PAGINATE'));
+            $items = $items->with('country','region','maincat','brand')->paginate(env('PAGINATE'));
             return view('website.car.index' , compact('items'));
         }
+
          public function show($id = null){
-            return $this->createOrEdit('website.car.edit' , $id);
+
+          if ($id){ // you are in the edit case
+              $car=$this->model->findOrFail($id);
+              if ($car->user_id != Auth::User()->id){
+                  return redirect('505');
+              }
+          }
+             return $this->createOrEdit('website.car.edit' , $id);
+
+
         }
        public function store(AddRequestCar $request){
           $request->request->add(['user_id'=>auth()->user()->id]);
@@ -55,6 +66,11 @@ use App\Application\Requests\Website\Car\UpdateRequestCar;
           public function getById($id){
             $fields = $this->model->getConnection()->getSchemaBuilder()->getColumnListing($this->model->getTable());
             return $this->createOrEdit('website.car.show' , $id , ['fields' =>  $fields]);
+        }
+        public function showOriginalImage($id){
+
+            $car=$this->model->findOrFail($id);
+            return view('website.car.showimage',compact('car'));
         }
          public function destroy($id){
             return $this->deleteItem($id , 'car')->with('sucess' , 'Done Delete Car From system');

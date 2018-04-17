@@ -3,9 +3,10 @@
 @section('title')
      {{ trans('brand.brand') }} {{ trans('home.control') }}
 @endsection
-
+@section('search')
+    @include('layouts.search')
+@endsection
 @section('content')
-
     <!-- ____________________Featured Section ______________________________-->
     <div class="allcontain">
         <div class="feturedsection">

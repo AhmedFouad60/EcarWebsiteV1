@@ -4,6 +4,9 @@
 
 </style>
 @endpush
+@section('search')
+    @include('layouts.search')
+@endsection
 @section('content')
     <!--_______________________________________ Carousel__________________________________ -->
     <div class="allcontain">

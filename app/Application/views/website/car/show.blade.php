@@ -45,7 +45,9 @@
     @if($type == "File")
      <td> <a href="{{ url(env("UPLOAD_PATH")."/".$item->image) }}">{{ $item->image }}</a></td>
     @elseif($type == "Image")
-     <td> <img src="{{ url(env("UPLOAD_PATH")."/".$item->image) }}" /></td>
+            <td> <img src="{{ url(env("UPLOAD_PATH")."/small"."/".$item->image) }}" /><span class=""><span style="margin-left: 20px;">original</span>@include("website.car.buttons.view", ["id" => $item->id ,"large"=>"large"])</span></td>
+
+
     @else
      <td>{{ nl2br($item->image) }}</td>
     @endif</tr>
@@ -64,7 +66,7 @@
     @endif</tr>
    </tr>
   </table>
-          @include('website.car.buttons.delete' , ['id' => $item->id])
-        @include('website.car.buttons.edit' , ['id' => $item->id])
+          {{--@include('website.car.buttons.delete' , ['id' => $item->id])--}}
+        {{--@include('website.car.buttons.edit' , ['id' => $item->id])--}}
 </div>
 @endsection

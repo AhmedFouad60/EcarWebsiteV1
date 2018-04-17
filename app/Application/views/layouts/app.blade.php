@@ -102,6 +102,7 @@
                     <ul class="nav navbar-nav" id="navbarontop">
 
                         <li class="active"><a href="{{url('/')}}">{{trans('website.home')}}</a> </li>
+                        <li class=""><a href="{{url('/car')}}">{{trans('website.car')}}</a> </li>
 
                         <li class="dropdown">
                             <a href="{{url('maincat')}}">{{trans('website.category')}}</a>
@@ -132,89 +133,8 @@
         </div>
 
         {{--<div style="margin-bottom: 50px;"></div>--}}
-        <div class="allcontain clearfix">
 
-        <nav class="navbar navbar-default midle-nav ">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed textcostume" data-toggle="collapse" data-target="#navbarmidle" aria-expanded="false">
-                    <h1>SEARCH CARS</h1>
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarmidle">
-                <div class="searchtxt">
-                    <h1>SEARCH CARS</h1>
-                </div>
-             <form action="{{url('car')}}">
-                <ul class="nav navbar-nav navbarborder">
-
-                    <li class="li-category">
-                          <select name="brand" id="" class=" form-control text-center" >
-                                <option class="" value="" selected="true" disabled="disabled">BRANDS</option>
-
-                            @foreach(\App\Application\Model\Brand::get() as $brand)
-                                    <option class="" value="{{$brand->id}}">{{getDefaultValueKey($brand->title)}}</option>
-                                @endforeach
-
-                            </select>
-                        {{--</ul>--}}
-
-                    </li>
-                    <li class="li-category">
-                        <select name="maincat" id="" class=" form-control text-center" >
-                            <option class="disable" value="" selected="true" disabled="disabled">Category</option>
-
-                            @foreach(\App\Application\Model\Maincat::get() as $category)
-                                <option class="" value="{{$category->id}}">{{getDefaultValueKey($category->title)}}</option>
-                            @endforeach
-
-                        </select>
-
-
-                    </li>
-                    <li class="li-category">
-                        <select name="maincat" id="" class=" form-control text-center" >
-                            <option class="disable" value="" selected="true" disabled="disabled">Country</option>
-
-                            @foreach(\App\Application\Model\Country::get() as $country)
-                                <option class="" value="{{$country->id}}">{{getDefaultValueKey($country->title)}}</option>
-                            @endforeach
-
-                        </select>
-
-
-                    </li>
-                    <li class="li-category">
-                        <select name="maincat" id="" class=" form-control text-center" >
-                            <option class="disable" value="" selected="true" disabled="disabled">Region</option>
-
-                            @foreach(\App\Application\Model\Region::get() as $region)
-                                <option class="" value="{{$region->id}}">{{getDefaultValueKey($region->title)}}</option>
-                            @endforeach
-
-                        </select>
-
-
-                    </li>
-
-                    <li class="li-category">
-                            <input  type="number" placeholder="price" class="form-control" style="background: none;color: #FFF;height: 41px;font-size: 20px;">
-
-
-                    </li>
-                    <li class="li-search"> <button type="submit"class="searchbutton"><span class="glyphicon glyphicon-search "></span></button></li>
-                </ul>
-             </form>
-
-            </div>
-        </nav>
-
-        </div>
-
-
+       @yield('search')
         @yield('content')
 
         <!-- ____________________Featured Section ______________________________-->
@@ -230,24 +150,27 @@
                 {{--<span class="dotlogo">&bullet;</span><img src="{{url('website/image/collectionlogo1.png')}}" alt="logo1"><span class="dotlogo">&bullet;;</span>--}}
             {{--</div>--}}
             <ul class="nav nav-tabs bottomlinks">
+                <li><a href="{{ url('/') }}">{{ trans('website.home') }}</a></li>
+                <li class=""><a href="{{url('/car')}}">{{trans('website.car')}}</a> </li>
+
                 @php $page = page(); @endphp
                 <li><a href="{{ url('/page/'.$page->slug) }}">{{ getDefaultValueKey($page->title) }}</a></li>
                 <li><a href="{{ url('contact') }}">{{ trans('website.Contact Us') }}</a></li>
-                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                    <li>
+                <li><a href="{{url('maincat')}}">{{trans('website.category')}}</a></li>
+                <li><a href="{{url('brand')}}">{{trans('website.brand')}}</a></li>
+
+
+            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                    <li style="letter-spacing: 0px;">
                         <a rel="alternate" hreflang="{{$localeCode}}" href="{{LaravelLocalization::getLocalizedURL($localeCode) }}">
                             {{ $properties['native'] }}
                         </a>
                     </li>
                 @endforeach
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        {{ trans('website.Models') }}
-                        <span class="caret"></span>
-                    </a>
-                    {!! menu('website' , 'ul' , 'dropdown-menu') !!}
-                </li>
+
             </ul>
+
+
             <p>"Lorem ipsum dolor sit amet, consectetur,  sed do eiusmod tempor incididunt <br>
                 eiusmod tempor incididunt </p>
             <img src="{{url('website/image/line.png')}}" alt="line"> <br>
